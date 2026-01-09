@@ -1,50 +1,49 @@
-
 import streamlit as st
 
-st.set_page_config(page_title="Currency Converter", page_icon="💱")
+st.set_page_config(page_title="Currency Converter", page_icon="💱", layout="centered")
 
-st.title("25 💱 Currency to PKR Converter")
-st.write("Convert any of these currencies into Pakistani Rupees (PKR).")
+st.title("💱 25 Currency to PKR Converter")
+st.write("Convert 25 international currencies into Pakistani Rupees (PKR)")
 
-# --- Currency Rates to PKR (example rates, update as needed) ---
+# --- Currency Rates to PKR (example static rates) ---
 rates = {
-    "USD": 285,    # US Dollar
-    "EUR": 310,    # Euro
-    "GBP": 360,    # British Pound
-    "JPY": 2.1,    # Japanese Yen
-    "CAD": 215,    # Canadian Dollar
-    "AUD": 200,    # Australian Dollar
-    "CHF": 320,    # Swiss Franc
-    "CNY": 40,     # Chinese Yuan
-    "INR": 3.5,    # Indian Rupee
-    "PKR": 1,      # Pakistani Rupee
-    "SGD": 210,    # Singapore Dollar
-    "NZD": 190,    # New Zealand Dollar
-    "SEK": 28,     # Swedish Krona
-    "NOK": 27,     # Norwegian Krone
-    "KRW": 0.21,   # South Korean Won
-    "TRY": 16,     # Turkish Lira
-    "RUB": 3.5,    # Russian Ruble
-    "BRL": 55,     # Brazilian Real
-    "MXN": 16,     # Mexican Peso
-    "ZAR": 15,      # South African Rand
-    "ILS": 85,     # Israeli Shekel
-    "Indonesian Rupiah": 0.019, # Indonesian Rupiah
-    "INR": 3.5,    # Indian Rupee
-    "Riyal": 76,    # Saudi Riyal
-    "Dirham": 78     # UAE Dirham
+    "USD - US Dollar": 285,
+    "EUR - Euro": 310,
+    "GBP - British Pound": 360,
+    "JPY - Japanese Yen": 2.1,
+    "CAD - Canadian Dollar": 215,
+    "AUD - Australian Dollar": 200,
+    "CHF - Swiss Franc": 320,
+    "CNY - Chinese Yuan": 40,
+    "INR - Indian Rupee": 3.5,
+    "SGD - Singapore Dollar": 210,
+    "NZD - New Zealand Dollar": 190,
+    "SEK - Swedish Krona": 28,
+    "NOK - Norwegian Krone": 27,
+    "KRW - South Korean Won": 0.21,
+    "TRY - Turkish Lira": 16,
+    "RUB - Russian Ruble": 3.5,
+    "BRL - Brazilian Real": 55,
+    "MXN - Mexican Peso": 16,
+    "ZAR - South African Rand": 15,
+    "ILS - Israeli Shekel": 85,
+    "IDR - Indonesian Rupiah": 0.019,
+    "SAR - Saudi Riyal": 76,
+    "AED - UAE Dirham": 78,
+    "MYR - Malaysian Ringgit": 65,
+    "THB - Thai Baht": 8
 }
 
 # --- User Input ---
-amount = st.number_input("Enter Amount:", min_value=0.0, step=1.0)
+amount = st.number_input("Enter Amount", min_value=0.0, step=1.0)
 
 currency = st.selectbox(
-    "Select Currency:",
+    "Select Currency",
     list(rates.keys())
 )
 
 # --- Conversion ---
-if st.button("Convert"):
+if st.button("Convert 💰"):
     rate = rates[currency]
     result = amount * rate
-    st.success(f"{amount} {currency} = {result} PKR")
+    st.success(f"{amount} → {result:.2f} PKR")
